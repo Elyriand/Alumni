@@ -72,6 +72,6 @@ class Student implements User
 
     public function canparticipate()
     {
-        // TODO: Implement canparticipate() method.
+        return true;
     }
 }

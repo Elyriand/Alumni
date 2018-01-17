@@ -18,9 +18,11 @@ class Conference
     private $salle;
     private $nombrePersonneMax;
     private $date;
-    private $crenauHoraire;
+    private $crenauHorairedebut;
+    private $crenauHorairefin;
     private $student;
     private $isPublic;
+    private $price;
 
     /**
      * Conference constructor.
@@ -34,7 +36,7 @@ class Conference
      * @param $crenauHoraire
      * @param $adresse
      */
-    public function __construct(int $id, string $nom, string $description, string $objectif, Salle $salle, int $nombrePersonneMax, date $date, string $crenauHoraire, Student $student, bool $isPublic)
+    public function __construct(int $id, string $nom, string $description, string $objectif, Salle $salle, int $nombrePersonneMax, string $date, string $crenauHorairedebut, string $crenauHorairefin, Student $student, bool $isPublic, ?int $price = null)
     {
         $this->id = $id;
         $this->nom = $nom;
@@ -43,9 +45,11 @@ class Conference
         $this->salle = $salle;
         $this->nombrePersonneMax = $nombrePersonneMax;
         $this->date = $date;
-        $this->crenauHoraire = $crenauHoraire;
+        $this->crenauHorairedebut = $crenauHorairedebut;
+        $this->crenauHorairefin = $crenauHorairefin;
         $this->student = $student;
         $this->isPublic = $isPublic;
+        $this->price = $price;
     }
 
     /**
@@ -99,7 +103,7 @@ class Conference
     /**
      * @return date
      */
-    public function getDate(): date
+    public function getDate(): string
     {
         return $this->date;
     }
@@ -107,9 +111,17 @@ class Conference
     /**
      * @return string
      */
-    public function getCrenauHoraire(): string
+    public function getCrenauHorairedebut(): string
     {
-        return $this->crenauHoraire;
+        return $this->crenauHorairedebut;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCrenauHorairefin(): string
+    {
+        return $this->crenauHorairefin;
     }
 
     /**
